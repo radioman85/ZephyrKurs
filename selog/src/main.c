@@ -30,7 +30,13 @@ int main(void)
                     NULL, NULL, NULL,
                     READ_PRIORITY, 0, K_NO_WAIT);
 
-    if (read_tid != &read_thread_ctl)
+    if (read_tid != &read_thread_ctl) {
+        LOG_ERR("Error while creating a thread: %d", (int)read_tid);
+        return 1;
+    }
+
+    ret = k_thread_name_set(read_tid, "read_thread");
+    if (ret)
         LOG_ERR("Error while creating a thread: %d", (int)read_tid);
 
     ret = k_thread_join(read_tid, K_FOREVER);
