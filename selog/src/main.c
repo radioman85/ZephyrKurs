@@ -10,17 +10,21 @@
 LOG_MODULE_REGISTER(selog, LOG_LEVEL_INF);
 
 extern void read_thread_entry(void* data, void* d1, void* d2);
+extern int set_thread(k_tid_t* read_tid_p);
 
 #define READ_STACK_SIZE 500
 #define READ_PRIORITY -5
 
 K_KERNEL_STACK_DEFINE(read_stack_area, READ_STACK_SIZE);
 
+k_tid_t read_tid;
+
 int main(void) 
 {
     int ret;
     struct k_thread read_thread_ctl;
-    k_tid_t read_tid;
+    //k_tid_t read_tid;
+    //set_thread(&read_tid);
 
     LOG_INF("Griasde from %s", CONFIG_BOARD);
 

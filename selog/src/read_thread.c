@@ -13,7 +13,11 @@ void read_thread_entry(void* data, void* d1, void* d2)
 {
     LOG_INF("Griasde from the read thread");
 
-    k_sleep(K_SECONDS(3));
+    //k_sleep(K_SECONDS(3));
+    while(1) {
+        LOG_INF("Heeeeello World");
+        k_sleep(K_SECONDS(3));
+    }
 
     LOG_INF("Pfirde from the read thread");
 }
