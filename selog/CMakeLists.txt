@@ -9,4 +9,5 @@ target_sources(
     PRIVATE
     src/main.c
     src/read_thread.c
+    src/shell.c
 )
