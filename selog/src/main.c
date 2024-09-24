@@ -6,9 +6,11 @@
  */
 
 #include <zephyr/kernel.h>
+#include <zephyr/logging/log.h>
+LOG_MODULE_REGISTER(selog, LOG_LEVEL_INF);
 
 int main(void) {
-    printk("Griasde %s\n", CONFIG_BOARD);
+    LOG_INF("Griasde %s", CONFIG_BOARD);
     
     return 0;
 }
