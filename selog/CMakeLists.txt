@@ -4,4 +4,9 @@ find_package(Zephyr)
 
 project(selog)
 
-target_sources(app PRIVATE src/main.c)
+target_sources(
+    app 
+    PRIVATE
+    src/main.c
+    src/read_thread.c
+)
