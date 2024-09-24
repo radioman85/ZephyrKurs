@@ -10,4 +10,5 @@ target_sources(
     src/main.c
     src/read_thread.c
     src/shell.c
+    src/bme280_thread.c
 )
