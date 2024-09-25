@@ -3,7 +3,8 @@
         {
             "name": "Mac",
             "includePath": [
-                "~/zephyrproject/zephyr/include"
+                "~/zephyrproject/zephyr/include",
+                "~/ZephyrKurs"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",

@@ -33,7 +33,7 @@ void bme280_thread_entry(void* data, void* d1, void* d2)
                         pres.val1, pres.val2,
                         humi.val1, pres.val2);
         LOG_INF("%s", buf);
-        k_sleep(K_SECONDS(1));
+        k_sleep(K_SECONDS(10));
     }
 
     LOG_INF("bme280 thread stopped");

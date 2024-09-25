@@ -9,15 +9,19 @@
 #include <stdio.h>
 #include <zephyr/kernel.h>
 #include <zephyr/net/socket.h>
-
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(net_thread, LOG_LEVEL_INF);
 
+#include "selog.h"
 
 #define RECV_BUF_SIZE 128
 #define PEER_PORT	2000
 
-extern int net_running;
+
+extern struct k_fifo se_fifo;
+
+// extern int net_running;
+int net_running = 1;
 
 int sock_fd = -1;
 
@@ -71,9 +75,17 @@ static int process_tcp(void)
 {
 	int ret, retry = 1;
 	char buf[RECV_BUF_SIZE];
+	struct se_bme *se_bme;
 
 	do {
-		strcpy(buf, "SERVUS\n");
+		se_bme = k_fifo_get(&se_fifo, K_FOREVER);
+		memset(buf, 0, sizeof(buf));
+		sprintf(buf, "T: %d.%06d; P: %d.%06d; H: %d.%06d",
+                        se_bme->temp1, se_bme->temp2,
+                        se_bme->pres1, se_bme->pres2,
+                        se_bme->humi1, se_bme->humi2);
+		k_free(se_bme);
+
 		ret =  sendall(sock_fd, buf, strlen(buf));
 		if (ret < 0) {
 			LOG_ERR("TCP: Failed to send data, errno %d", errno);

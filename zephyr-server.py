@@ -21,7 +21,7 @@ def recv_from_client(sock, out_file):
 out = open('gnss-data.txt', 'wb', buffering=0)
 bindsocket = socket(AF_INET, SOCK_STREAM)
 bindsocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-bindsocket.bind(('192.168.8.1', 2001))
+bindsocket.bind(('192.168.8.1', 2000))
 bindsocket.listen(5)
 
 try:
@@ -33,4 +33,3 @@ finally:
     bindsocket.shutdown(socket.SHUT_RDWR)
     bindsocket.close()
     out.close()
-

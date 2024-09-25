@@ -87,20 +87,19 @@ CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //Path to CMake installation.
 CMAKE_ROOT:INTERNAL=/usr/local/Cellar/cmake/3.30.3/share/cmake
 //Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/usr/local/Frameworks/Python.framework/Versions/3.12/bin/python3.12][cfound components: Interpreter ][v3.12.6(3.10)]
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/usr/local/opt/python/libexec/bin/python][cfound components: Interpreter ][v3.12.6(3.10)]
 //Path to a program
-Python3_EXECUTABLE:INTERNAL=Python3_EXECUTABLE-NOTFOUND
+Python3_EXECUTABLE:INTERNAL=/usr/local/opt/python/libexec/bin/python
 //West
 WEST:INTERNAL=WEST-NOTFOUND
 //Compiler reason failure
 _Python3_Compiler_REASON_FAILURE:INTERNAL=
 //Development reason failure
 _Python3_Development_REASON_FAILURE:INTERNAL=
-//Path to a program.
-_Python3_EXECUTABLE:INTERNAL=/usr/local/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+_Python3_EXECUTABLE:INTERNAL=/usr/local/opt/python/libexec/bin/python
 //Python3 Properties
 _Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;6;64;<none>;cpython-312-darwin.so;abi3;/usr/local/opt/python@3.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12;/usr/local/opt/python@3.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12;/usr/local/lib/python3.12/site-packages;/usr/local/lib/python3.12/site-packages
-_Python3_INTERPRETER_SIGNATURE:INTERNAL=19b9db9a0d79df1bed9ad98bfb34a966
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=f8493c2c24f5a05bbd29d8f4d54997a7
 //Interpreter reason failure
 _Python3_Interpreter_REASON_FAILURE:INTERNAL=
 //NumPy reason failure
