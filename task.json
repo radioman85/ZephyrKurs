@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "build",
+          "type": "shell",
+          "command": "west",
+          "args": [
+              "build",
+              "-b",
+              "olimex_stm32_e407",
+              "-p",
+              "always",
+              "-t",
+              "debug",
+              "-DCMAKE_EXPORT_COMPILE_COMMANDS=YES",
+              "../ZephyrKurs/selog/"
+          ],
+          "group": {
+              "kind": "build",
+              "isDefault": true
+          },
+          "problemMatcher": ["$gcc"]
+      }
+  ]
+}

@@ -41,29 +41,16 @@ int main(void)
                     NULL, NULL, NULL,
                     READ_PRIORITY, 0, K_NO_WAIT);
 
-
-
-    if (read_tid != &read_thread_ctl) {
-        LOG_ERR("Error while creating a thread: %d", (int)read_tid);
-        return 1;
-    }
-
-    ret = k_thread_name_set(read_tid, "read_thread");
-    if (ret)
-        LOG_ERR("Error while creating a thread: %d", (int)read_tid);
-
-    ret = k_thread_join(read_tid, K_FOREVER);
-    if(!ret)
-        LOG_DBG("Read thread terminated");
-    else
-        LOG_ERR("Error while terminating read thread: %d", ret);
-
-
     bme280_tid = k_thread_create(&bme280_thread_ctl, bme280_stack_area, 
                     K_KERNEL_STACK_SIZEOF(bme280_stack_area),
                     bme280_thread_entry,
                     NULL, NULL, NULL,
                     BME280_PRIORITY, 0, K_NO_WAIT);
+
+    if (read_tid != &read_thread_ctl) {
+        LOG_ERR("Error while creating a thread: %d", (int)read_tid);
+        return 1;
+    }
 
     if (bme280_tid != &bme280_thread_ctl) {
         LOG_ERR("Error while creating a thread: %d", (int)bme280_tid);
@@ -80,6 +67,15 @@ int main(void)
     else
         LOG_ERR("Error while terminating bme280 thread: %d", ret);
 
+    ret = k_thread_name_set(read_tid, "read_thread");
+    if (ret)
+        LOG_ERR("Error while creating a thread: %d", (int)read_tid);
+
+    ret = k_thread_join(read_tid, K_FOREVER);
+    if(!ret)
+        LOG_DBG("Read thread terminated");
+    else
+        LOG_ERR("Error while terminating read thread: %d", ret);
 
     LOG_INF("Servus");
 

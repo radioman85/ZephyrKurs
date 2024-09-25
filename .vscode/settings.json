@@ -1,0 +1,6 @@
+{
+    "nrf-connect.applications": [
+        "${workspaceFolder}/selog"
+    ],
+    "cmake.sourceDirectory": "/Users/niklasroth/ZephyrKurs/selog"
+}

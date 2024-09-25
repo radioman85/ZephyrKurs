@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Zephyr: Debug on Olimex STM32 E407",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/zephyr/zephyr.elf",  // Adjust path if necessary
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/local/bin/gdb",  // Adjust this if necessary
+            "setupCommands": [
+                {
+                    "text": "-enable-pretty-printing",
+                    "description": "Enable pretty printing for gdb",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build",
+            "serverLaunchTimeout": 10000,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bListening on\\b.*(\\d+)"
+            }
+        }
+    ]
+}
